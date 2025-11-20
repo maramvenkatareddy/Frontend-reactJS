@@ -3,16 +3,21 @@ import UserItem from './UserItem';
 
 const UserList = ({ users, onEdit, onDelete }) => {
   return (
-    
-      Users List
+    <div className="user-list">
+      <h3>Users List</h3>
       {users.length === 0 ? (
-        No users found. Add one to get started!
+        <p>No users found. Add one to get started!</p>
       ) : (
         users.map((user) => (
-          
+          <UserItem
+            key={user.id}
+            user={user}
+            onEdit={onEdit}
+            onDelete={onDelete}
+          />
         ))
       )}
-    
+    </div>
   );
 };
 
